@@ -1,7 +1,18 @@
+param(
+    [string]$ModelSimDirectory = 'D:\ModelSim\altera\14.1\modelsim_ase\win32aloem'
+)
+
 $ErrorActionPreference = 'Stop'
-$simDir = "D:\FPGA\HX4S20\HX4S20_Contest_202606\versions\V27_FIRE_ALL_IN_ONE\03_SIMULATION"
-$hdlDir = "D:\FPGA\HX4S20\HX4S20_Contest_202606\versions\V27_FIRE_ALL_IN_ONE\02_FPGA_PROJECT\src\user_source\hdl_source"
-$mDir   = "D:\ModelSim\altera\14.1\modelsim_ase\win32aloem"
+$simDir = $PSScriptRoot
+$projectRoot = Split-Path -Parent $simDir
+$hdlDir = Join-Path $projectRoot '02_FPGA_PROJECT\src\user_source\hdl_source'
+$mDir = $ModelSimDirectory
+
+foreach ($toolName in @('vlib.exe', 'vlog.exe', 'vsim.exe')) {
+    if (!(Test-Path -LiteralPath (Join-Path $mDir $toolName))) {
+        throw "ModelSim tool not found: $toolName. Set -ModelSimDirectory to the ModelSim executable directory."
+    }
+}
 
 $tempWork = Join-Path $env:TEMP ("v27_game_tb_" + [Guid]::NewGuid().ToString("N"))
 New-Item -ItemType Directory -Path $tempWork | Out-Null

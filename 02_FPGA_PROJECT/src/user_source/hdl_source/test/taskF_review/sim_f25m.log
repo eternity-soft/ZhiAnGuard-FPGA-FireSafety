@@ -1,0 +1,36 @@
+# vsim -c work.tb_contest_audio_linkage_engine -do "run -all; quit -f" -logfile sim_f25m.log 
+# Start time: 12:55:43 on Oct 14,2026
+# Loading work.tb_contest_audio_linkage_engine
+# Loading work.contest_audio_linkage_engine
+# run -all
+# Running audio regression: clock=25000000 Hz, PCM=48000 Hz
+# T01: reset with initial toggles/state HIGH, no false cue
+# T06/T07: 100 ms mute, exact sample rate, no cadence interruption
+#   4800 sample intervals = 2500000 clocks PASS
+# T02/T10: four image tones, asynchronous payload+toggle
+#   frequency PASS: expected 523.250 Hz, measured 523.364 Hz
+#   frequency PASS: expected 587.330 Hz, measured 587.455 Hz
+#   frequency PASS: expected 659.250 Hz, measured 659.207 Hz
+#   frequency PASS: expected 698.460 Hz, measured 698.445 Hz
+# T03: period tones, including reserved selector 3 -> 4-second tone
+#   frequency PASS: expected 329.630 Hz, measured 329.635 Hz
+#   frequency PASS: expected 523.250 Hz, measured 523.364 Hz
+#   frequency PASS: expected 783.990 Hz, measured 784.158 Hz
+#   frequency PASS: expected 783.990 Hz, measured 784.158 Hz
+# T04/T05: auto ON/OFF, durations, ducking and recovery
+#   frequency PASS: expected 1046.500 Hz, measured 1046.653 Hz
+#   frequency PASS: expected 440.000 Hz, measured 439.892 Hz
+#   four BGM notes and uninterrupted note timeline PASS
+# T09: simultaneous AUTO > PERIOD > IMAGE, no stale replay
+# T09 extension: higher/equal priority soft preemption and latest payload
+#   frequency PASS: expected 698.460 Hz, measured 698.445 Hz
+# T10 boundary: event arrives on the sample-consumption edge
+# T08: exact post-mix volume ratios by deterministic PCM replay
+# Overflow: stress the actual widened mixer and final saturation
+# Reset during playback: flush PCM pipeline and re-baseline HIGH inputs
+# ALL TESTS PASSED: T01-T10, BGM, CDC, priority, fractional 48 kHz, mute, volume, saturation.
+# Checked valid samples=103118, cue starts=21; no TD/board validation claimed.
+# ** Note: $finish    : tb_contest_audio_linkage_engine.v(412)
+#    Time: 2148296342 ns  Iteration: 0  Instance: /tb_contest_audio_linkage_engine
+# End time: 13:02:23 on Oct 14,2026, Elapsed time: 0:06:40
+# Errors: 0, Warnings: 0

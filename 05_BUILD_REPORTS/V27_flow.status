@@ -1,0 +1,25 @@
+Location         : D:\QQ\V27_FIRE_ALL_IN_ONE_BUILD\02_FPGA_PROJECT\src\td_project
+Running with     : Tang Dynasty v6.2.168116
+                   Copyright (c) 2012-2025 Anlogic Inc.
+Top Model        : anlogic_topic1_hdmi_media_top
+Device           : EG4S20BG256
+Speed            : NA
+
+Timing Mode      : final
+Setup            : WNS -5699ps  TNS  -340371ps  NUM_FEPS   232
+Hold             : WNS   -11ps  TNS      -11ps  NUM_FEPS     1
+
+Flow Statistics  :
+---------------------------------------------------------------------------------------------------
+     command     |  #calls  |  wall time   |  cpu time(s)  |  used memory(mb)  |  peak memory(mb)  
+---------------------------------------------------------------------------------------------------
+      route      |    1     |  1m15s(44%)  |   129(49%)    |       1239        |       1239        
+      place      |    1     |   43s(25%)   |    81(31%)    |        932        |        932        
+  optimize_gate  |    1     |   28s(16%)   |    27(10%)    |        705        |        705        
+  optimize_rtl   |    1     |   24s(14%)   |    23(8%)     |        599        |        657        
+  import_device  |    1     |    0s(0%)    |     0(0%)     |        84         |        84         
+    read_adc     |    2     |    0s(0%)    |     0(0%)     |        341        |        341        
+    read_sdc     |    3     |    0s(0%)    |     0(0%)     |        341        |        341        
+---------------------------------------------------------------------------------------------------
+      total      |    10    |    2m50s     |      260      |       1239        |       1239        
+---------------------------------------------------------------------------------------------------
